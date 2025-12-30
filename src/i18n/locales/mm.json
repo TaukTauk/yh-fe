@@ -1,0 +1,18 @@
+{
+  "common": {
+    "home": "ပင်မ",
+    "users": "အသုံးပြုသူများ",
+    "login": "Sing in",
+    "logout": "Sign out",
+    "settings": "Settings",
+    "language": "ဘာသာစကား",
+    "theme": "ကာလာ",
+    "help": "အကူအညီ",
+	"location": "နေရပ်"
+  },
+  "nav": {
+    "home": "ပင်မ",
+    "profile": "ကိုယ်ရေးအချက်အလက်",
+    "users": "အသုံးပြုသူများ"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "common": {
+    "home": "Home",
+    "users": "Users",
+    "login": "Sign in",
+    "logout": "Sign out",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "help": "Help",
+	"location": "Location"
+  },
+  "nav": {
+    "home": "Home",
+    "profile": "Profile",
+    "users": "Users"
+  }
+}

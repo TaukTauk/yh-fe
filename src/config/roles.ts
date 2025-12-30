@@ -1,0 +1,28 @@
+import { PERMISSIONS, type Permission } from "./permissions"
+
+export const ROLE_PERMISSIONS: Record<string, Permission[]> = {
+	admin: [
+		// users management
+		PERMISSIONS.USERS_READ,
+		PERMISSIONS.USERS_CREATE,
+		PERMISSIONS.USERS_DELETE,
+
+		// settings
+		PERMISSIONS.SETTINGS_VIEW,
+		PERMISSIONS.SETTINGS_UPDATE,
+
+		// profile
+		PERMISSIONS.PROFILE_VIEW,
+		PERMISSIONS.PROFILE_UPDATE,
+	],
+
+	user: [
+		// profile
+		PERMISSIONS.PROFILE_VIEW,
+		PERMISSIONS.PROFILE_UPDATE,
+
+		// settings
+		PERMISSIONS.SETTINGS_VIEW,
+		PERMISSIONS.SETTINGS_UPDATE
+	]
+}
