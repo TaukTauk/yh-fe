@@ -1,16 +1,13 @@
 export const PERMISSIONS = {
-	// users management
-	USERS_READ: 'users.read',
-	USERS_CREATE: 'users.create',
-	USERS_DELETE: 'users.delete',
+	// Events
+	EVENTS_ALL : 'all-events',
+	EVENTS_FAV : 'fav-envents',
+	EVENTS_TICKET : 'ticket-events',
+	EVENTS_JOIN : 'join-event',
+	EVENTS_WISHLIST : 'wishlist-event',
 
-	// settings management
-	SETTINGS_VIEW: 'settings.view',
-	SETTINGS_UPDATE: 'settings.update',
-
-	// profile management
-	PROFILE_VIEW: 'profile.view',
-	PROFILE_UPDATE: 'profile.update',
+	// Account Settings
+	ACCOUNT_SETTING : 'account-settings',
 } as const
 
 export type Permission = typeof PERMISSIONS[keyof typeof PERMISSIONS]

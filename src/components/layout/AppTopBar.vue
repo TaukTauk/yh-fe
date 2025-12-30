@@ -6,6 +6,9 @@
 
 	<v-toolbar-title>App</v-toolbar-title>
 
+	<!-- Org switcher -->
+	<OrgSwitcher v-if="isAuthenticated" />
+
 	<v-spacer />
 
 	<!-- profile -->
@@ -18,9 +21,12 @@
 import { storeToRefs } from 'pinia'
 import { useUiStore } from '@/stores/ui.store'
 import TopbarActions from '@/components/ui/TopbarActions.vue'
+import OrgSwitcher from '@/components/org/OrgSwitcher.vue'
+import { useAuthStore } from '@/stores/auth.store'
 
 const ui = useUiStore()
 const { isMobile } = storeToRefs(ui)
 const { toggleRail, toggleDrawer } = ui
+const { isAuthenticated } = storeToRefs(useAuthStore())
 
 </script>

@@ -6,10 +6,10 @@
 			<v-text-field label="Password" type="password"/>
 		</v-card-text>
 		<v-card-actions>
-			<v-btn block color="primary" @click="redirect()">Login As User</v-btn>
+			<v-btn block color="primary" @click="loginNormal()">Normal User</v-btn>
 		</v-card-actions>
 		<v-card-actions>
-			<v-btn block color="primary" @click="redirectAdmin()">Login As Admin</v-btn>
+			<v-btn block color="primary" @click="loginPower()">Power User</v-btn>
 		</v-card-actions>
 	</v-card>
 </template>
@@ -21,17 +21,20 @@ import { useRouter, useRoute } from 'vue-router'
 const auth = useAuthStore()
 const router = useRouter()
 const route = useRoute()
-const { login } = auth
 
-const redirect = async () => {
-	login('user');
+const go = () => {
 	const url = route.query.redirect as string | undefined
 	router.push(url || '/')
 }
 
-const redirectAdmin = async () => {
-	login('admin');
-	const url = route.query.redirect as string | undefined
-	router.push(url || '/')
+const loginNormal = () => {
+	auth.loginNormalUser()
+	go()
 }
+
+const loginPower = () => {
+	auth.loginPowerUser()
+	go()
+}
+
 </script>

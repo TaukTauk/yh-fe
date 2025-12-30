@@ -13,6 +13,10 @@
   "nav": {
     "home": "Home",
     "profile": "Profile",
-    "users": "Users"
+    "users": "Users",
+	"orgDashboard": "Dashboard",
+	"createEvent": "Events",
+	"createPaidEvent": "Paid Events",
+	"orgSettings": "Settings"
   }
 }
