@@ -17,7 +17,7 @@ import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import EventFilters from '@/components/public/EventFilters.vue'
 import EventGrid from '@/components/public/EventGrid.vue'
-import { MOCK_EVENTS } from '@/mocks/events'
+import { EVENTS } from '@/mocks/events'
 
 const route = useRoute()
 const router = useRouter()
@@ -31,7 +31,7 @@ const filters = computed(() => ({
 }))
 
 const filteredEvents = computed(() => {
-	return MOCK_EVENTS.filter(e => {
+	return EVENTS.filter(e => {
 		if (filters.value.query && !e.title.toLowerCase().includes(filters.value.query.toLowerCase())) {
 			return false
 		}
