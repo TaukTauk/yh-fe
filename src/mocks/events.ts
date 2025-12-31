@@ -1,4 +1,4 @@
-export type MockEvent = {
+export type Event = {
 	id: string
 	title: string
 	category: string
@@ -7,10 +7,11 @@ export type MockEvent = {
 	price: number
 	cover: string
 	description: string
-	organizer: string
+	organizerName: string
 }
 
-export const MOCK_EVENTS: MockEvent[] = [
+
+export const EVENTS: Event[] = [
 	{
 		id: '1',
 		title: 'Bangkok Tech Meetup',
@@ -20,7 +21,7 @@ export const MOCK_EVENTS: MockEvent[] = [
 		price: 0,
 		cover: 'https://picsum.photos/1200/400?1',
 		description: 'A meetup for developers, startups, and tech enthusiasts.',
-		organizer: 'Bangkok Dev Community',
+		organizerName: 'Bangkok Dev Community',
 	},
 	{
 		id: '2',
@@ -31,7 +32,7 @@ export const MOCK_EVENTS: MockEvent[] = [
 		price: 25,
 		cover: 'https://picsum.photos/1200/400?2',
 		description: 'Enjoy a relaxing night with live jazz performances.',
-		organizer: 'Blue Note Bangkok',
+		organizerName: 'Blue Note Bangkok',
 	},
 	{
 		id: '3',
@@ -42,7 +43,7 @@ export const MOCK_EVENTS: MockEvent[] = [
 		price: 15,
 		cover: 'https://picsum.photos/1200/400?3',
 		description: 'Early-stage startups pitch ideas to investors and mentors.',
-		organizer: 'SEA Startup Hub',
+		organizerName: 'SEA Startup Hub',
 	},
 	{
 		id: '4',
@@ -53,7 +54,7 @@ export const MOCK_EVENTS: MockEvent[] = [
 		price: 0,
 		cover: 'https://picsum.photos/1200/400?4',
 		description: 'Hands-on Vue 3 workshop for beginners and intermediates.',
-		organizer: 'Frontend Masters SEA',
+		organizerName: 'Frontend Masters SEA',
 	},
 	{
 		id: '5',
@@ -64,7 +65,7 @@ export const MOCK_EVENTS: MockEvent[] = [
 		price: 120,
 		cover: 'https://picsum.photos/1200/400?5',
 		description: 'A full-day retreat focused on relaxation and mental clarity.',
-		organizer: 'Zen Life Thailand',
+		organizerName: 'Zen Life Thailand',
 	},
 	{
 		id: '6',
@@ -75,7 +76,7 @@ export const MOCK_EVENTS: MockEvent[] = [
 		price: 10,
 		cover: 'https://picsum.photos/1200/400?6',
 		description: 'Explore Bangkok’s old town through street photography.',
-		organizer: 'BKK Photo Collective',
+		organizerName: 'BKK Photo Collective',
 	},
 	{
 		id: '7',
@@ -86,7 +87,7 @@ export const MOCK_EVENTS: MockEvent[] = [
 		price: 80,
 		cover: 'https://picsum.photos/1200/400?7',
 		description: 'Industry experts discuss AI-driven security challenges.',
-		organizer: 'Asia Cyber Forum',
+		organizerName: 'Asia Cyber Forum',
 	},
 	{
 		id: '8',
@@ -97,7 +98,7 @@ export const MOCK_EVENTS: MockEvent[] = [
 		price: 12,
 		cover: 'https://picsum.photos/1200/400?8',
 		description: 'A curated selection of short indie films from SEA.',
-		organizer: 'Indie Lens',
+		organizerName: 'Indie Lens',
 	},
 	{
 		id: '9',
@@ -108,7 +109,7 @@ export const MOCK_EVENTS: MockEvent[] = [
 		price: 0,
 		cover: 'https://picsum.photos/1200/400?9',
 		description: 'Free online training sessions for first-time marathon runners.',
-		organizer: 'RunTogether',
+		organizerName: 'RunTogether',
 	},
 	{
 		id: '10',
@@ -119,6 +120,6 @@ export const MOCK_EVENTS: MockEvent[] = [
 		price: 5,
 		cover: 'https://picsum.photos/1200/400?10',
 		description: 'Taste the best street food from vendors across Thailand.',
-		organizer: 'Taste of Thailand',
+		organizerName: 'Taste of Thailand',
 	},
 ]

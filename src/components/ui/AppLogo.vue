@@ -3,7 +3,7 @@
 		@click="goHome" 
 		class="cursor-pointer"
 	>
-	YouthHub
+	<span>YouthHub</span>
 	</v-toolbar-title>
 </template>
 

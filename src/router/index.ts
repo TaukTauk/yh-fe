@@ -32,7 +32,7 @@ const router = createRouter({
 			},
 			// event detail
 			{
-				path: '/events/:eventId',
+				path: 'events/:eventId',
 				name: 'event-detail',
 				component: () => import('@/views/Public/EventDetail.vue'),
 			},
@@ -80,7 +80,7 @@ const router = createRouter({
 			},
 			{
 				path: 'tickets',
-				name: 'myevent-tickets',
+				name: 'my-tickets',
 				component: () => import('@/views/MyEvent/Tickets.vue'),
 				meta: {
 					permission: PERMISSIONS.EVENTS_TICKET,
@@ -90,27 +90,45 @@ const router = createRouter({
 	},
 	// // organization
 	{
-		path: '/org',
+		path: '/org/:orgId',
 		component: OrgLayout,
 		meta: {requiresAuth: true},
 		children: [
 			{
-				path: ':orgId/dashboard',
+				path: 'dashboard',
 				name: 'org-dashboard',
 				component: () => import('@/views/Org/OrgDashboard.vue'),
 				meta: {
-					requiresAuth: true,
 					org: {
 						role: 'organizer',
 					}
 				}
 			},
 			{
-				path: ':orgId/events/create',
-				name: 'org-event-create',
-				component: () => import('@/views/Org/CreateEvent.vue'),
+				path: 'events',
+				name: 'org-events',
+				component: () => import('@/views/Org/events/EventList.vue'),
 				meta: {
-					requiresAuth: true,
+					org: {
+						role: 'organizer'
+					}
+				}
+			},
+			{
+				path: 'events/:eventId',
+				name: 'org-event-detail',
+				component: () => import('@/views/Org/events/OrgEventDetail.vue'),
+				meta: {
+					org: {
+						role: 'organizer',
+					}
+				}
+			},
+			{
+				path: 'events/create',
+				name: 'org-event-create',
+				component: () => import('@/views/Org/events/CreateEvent.vue'),
+				meta: {
 					org: {
 						permission: ORG_PERMISSIONS.EVENT_CREATE,
 						requiresVerified: true,
@@ -118,22 +136,20 @@ const router = createRouter({
 				}
 			},
 			{
-				path: ':orgId/settings',
+				path: 'settings',
 				name: 'org-settings',
 				component: () => import('@/views/Org/Settings.vue'),
 				meta: {
-					requiresAuth: true,
 					org: {
 						role: 'admin'
 					}
 				}
 			},
 			{
-				path: ':orgId/events/create-paid',
+				path: 'events/create-paid',
 				name: 'org-event-create-paid',
-				component: () => import('@/views/Org/CreatePaidEvent.vue'),
+				component: () => import('@/views/Org/events/CreatePaidEvent.vue'),
 				meta: {
-					requiresAuth: true,
 					org: {
 						permission: ORG_PERMISSIONS.EVENT_PAID_CREATE,
 						requiresVerified: true,

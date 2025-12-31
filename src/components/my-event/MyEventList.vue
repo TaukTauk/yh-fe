@@ -1,19 +1,18 @@
-<!-- EventGrid.vue -->
 <template>
 	<v-row>
-		<!-- Skeletons -->
+		<!-- Loading skeletons -->
 		<v-col
 			v-if="loading"
-			v-for="n in 6"
-			:key="'skeleton-' + n"
+			v-for="i in 3"
+			:key="i"
 			cols="12"
 			sm="6"
 			md="4"
 		>
-			<EventCardSkeleton />
+			<MyEventCardSkeleton />
 		</v-col>
 
-		<!-- Real events -->
+		<!-- Actual events -->
 		<v-col
 			v-else
 			v-for="event in events"
@@ -22,25 +21,25 @@
 			sm="6"
 			md="4"
 		>
-			<EventCard :event="event" :fav="fav"/>
+			<MyEventCard :event="event" />
 		</v-col>
 
 		<!-- Empty state -->
 		<v-col v-if="!loading && !events.length" cols="12">
 			<v-alert type="info">
-				No events found
+				You have no events yet
 			</v-alert>
 		</v-col>
 	</v-row>
 </template>
 
 <script setup lang="ts">
-import EventCard from './EventCard.vue'
-import EventCardSkeleton from './EventCardSkeleton.vue'
+import MyEventCard from './MyEventCard.vue'
+import MyEventCardSkeleton from './MyEventCardSkeleton.vue'
+import type { MyEvent } from '@/mocks/my-events'
 
 defineProps<{
-	events: any[]
+	events: MyEvent[]
 	loading: boolean
-	fav?: boolean
 }>()
 </script>

@@ -18,12 +18,13 @@
     "profile": "Profile",
     "users": "Users",
 	"orgDashboard": "Dashboard",
-	"createEvent": "Events",
-	"createPaidEvent": "Paid Events",
+	"createEvent": "Create Event",
+	"createPaidEvent": "Create Paid Event",
 	"orgSettings": "Settings",
 	"myEvents": "My Events",
 	"favorites": "Favorites",
-	"tickets": "Tickets"
+	"tickets": "Tickets",
+	"orgEvents": "Events"
   },
   "search": {
 	"placeholder": "Search for Events"

@@ -79,12 +79,12 @@ export const useAuthStore = defineStore('auth', {
 					role: 'organizer',
 					status: 'verified',
 				},
-				{
-					orgId: 'org-verified-member',
-					name: 'Verified Member Org',
-					role: 'member',
-					status: 'verified',
-				},
+				// {
+				// 	orgId: 'org-verified-member',
+				// 	name: 'Verified Member Org',
+				// 	role: 'member',
+				// 	status: 'verified',
+				// },
 				{
 					orgId: 'org-rejected',
 					name: 'Rejected Org',

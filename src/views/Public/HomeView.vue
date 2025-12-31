@@ -22,7 +22,7 @@ import { useRouter } from 'vue-router'
 import HeroCarousel from '@/components/public/HeroCarousel.vue'
 import EventFilters from '@/components/public/EventFilters.vue'
 import EventGrid from '@/components/public/EventGrid.vue'
-import { MOCK_EVENTS } from '@/mocks/events'
+import { EVENTS } from '@/mocks/events'
 
 const router = useRouter()
 
@@ -33,7 +33,7 @@ const filters = ref({
 	price: 'all',
 })
 
-const events = ref(MOCK_EVENTS.slice(0, 6)) // featured preview
+const events = ref(EVENTS.slice(0, 6)) // featured preview
 const loading = ref(false)
 
 const onFilterUpdate = (next: typeof filters.value) => {
@@ -51,7 +51,7 @@ const onFilterUpdate = (next: typeof filters.value) => {
 onMounted(async () => {
 	loading.value = true
 	await new Promise(r => setTimeout(r, 2000))
-	events.value = MOCK_EVENTS
+	events.value = EVENTS
 	loading.value = false
 })
 </script>

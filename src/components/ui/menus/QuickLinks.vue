@@ -46,13 +46,13 @@ const links = computed(() => {
 			case 'public':
 				return [
 					{ label: 'My Events', to: '/my-events/events', icon: 'mdi-calendar' },
-					{ label: 'My Orgs', to: org.currentOrgId ? `/org/${org.currentOrgId}/dashboard` : '/org', icon: 'mdi-office-building-outline' },
+					{ label: 'My Orgs', to: org.currentOrgId ? `/org/${org.currentOrgId}/dashboard` : null, icon: 'mdi-office-building-outline' },
 				]
 
 			case 'event':
 				return [
 					{ label: 'Browse Events', to: '/', icon: 'mdi-calendar-search' },
-					{ label: 'My Orgs', to: org.currentOrgId ? `/org/${org.currentOrgId}/dashboard` : '/org', icon: 'mdi-office-building-outline' },
+					{ label: 'My Orgs', to: org.currentOrgId ? `/org/${org.currentOrgId}/dashboard` : null, icon: 'mdi-office-building-outline' },
 				]
 
 			case 'org':
@@ -65,7 +65,7 @@ const links = computed(() => {
 				return [
 					{ label: 'Browse Events', to: '/', icon: 'mdi-calendar-search' },
 					{ label: 'My Events', to: '/my-events/events', icon: 'mdi-calendar' },
-					{ label: 'My Orgs', to: org.currentOrgId ? `/org/${org.currentOrgId}/dashboard` : '/org', icon: 'mdi-office-building-outline' },
+					{ label: 'My Orgs', to: org.currentOrgId ? `/org/${org.currentOrgId}/dashboard` : null, icon: 'mdi-office-building-outline' },
 				]
 
 			default: 

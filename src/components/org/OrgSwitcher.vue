@@ -70,17 +70,12 @@ const switchOrg = (orgId: string) => {
 
 	orgStore.switchOrg(orgId)
 
-	// route sync
-	if (route.params.orgId) {
-		router.replace({
-			...route,
-			params: {
-				...route.params,
-				orgId,
-			},
-		})
-	}
+	router.push({
+		name: 'org-dashboard',
+		params: { orgId },
+	})
 }
+
 
 const goCreateOrg = () => {
 	router.push({ name: 'org-create' })

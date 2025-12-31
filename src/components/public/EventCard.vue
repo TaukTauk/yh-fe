@@ -3,6 +3,7 @@
 		<!-- Image + favorite -->
 		<div class="image-wrapper">
 			<v-img
+				lazy-src="https://picsum.photos/id/11/100/60"
 				:src="event.cover"
 				height="160"
 				cover
@@ -17,7 +18,7 @@
 				class="fav-btn"
 				@click.stop="onFavorite"
 			>
-				<v-icon :icon="isAdded ? 'mdi-heart' : 'mdi-heart-outline'" />
+				<v-icon :icon="isAdded || fav ? 'mdi-heart' : 'mdi-heart-outline'" />
 			</v-btn>
 		</div>
 
@@ -39,6 +40,7 @@
 			</v-btn>
 
 			<v-btn
+				v-if="!fav"
 				color="primary"
 				:loading="joining"
 				@click="onJoin"
@@ -56,7 +58,7 @@ import { useAuthStore } from '@/stores/auth.store'
 import { storeToRefs } from 'pinia'
 import { notify } from '@/services/toast.service'
 
-defineProps<{ event: any }>()
+defineProps<{ event: any, fav?: boolean }>()
 
 const router = useRouter()
 const route = useRoute()

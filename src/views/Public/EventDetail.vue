@@ -15,9 +15,26 @@
 					<h1 class="text-h4 font-weight-bold mb-2">
 						{{ event.title }}
 					</h1>
+					<v-chip
+						v-if="isOrganizer"
+						color="primary"
+						size="small"
+						class="ml-2"
+					>
+						Organizer
+					</v-chip>
+
+					<v-chip
+						v-else-if="isAttendee"
+						color="success"
+						size="small"
+						class="ml-2"
+					>
+						Attending
+					</v-chip>
 
 					<div class="text-body-2 text-medium-emphasis mb-4">
-						{{ event.organizer }} · {{ event.category }}
+						{{ event.organizerName }} · {{ event.category }}
 					</div>
 
 					<p class="text-body-1">
@@ -44,7 +61,7 @@
 							</v-list>
 						</v-card-text>
 
-						<v-card-actions>
+						<v-card-actions v-if="!isJoined">
 							<v-btn
 								block
 								color="primary"
@@ -54,16 +71,48 @@
 								Join Event
 							</v-btn>
 						</v-card-actions>
-						<v-card-actions>
+
+						<v-card-actions v-if="isAttendee">
+							<v-btn
+								block
+								variant="outlined"
+								color="success"
+								disabled
+							>
+								Joined
+							</v-btn>
+						</v-card-actions>
+
+						<v-card-actions v-if="isOrganizer">
 							<v-btn
 								block
 								color="primary"
+								@click="goManage"
+							>
+								Manage Event
+							</v-btn>
+
+							<v-btn
+								block
+								variant="outlined"
+								color="error"
+								@click="onCancelEvent"
+							>
+								Cancel Event
+							</v-btn>
+						</v-card-actions>
+
+						<v-card-actions v-if="isJoined || !isJoined">
+							<v-btn
+								block
+								variant="text"
 								@click="onFavorite"
 								:disabled="addingFav"
 							>
 								Favorite
 							</v-btn>
 						</v-card-actions>
+
 					</v-card>
 				</v-col>
 			</v-row>
@@ -80,10 +129,11 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import { MOCK_EVENTS } from '@/mocks/events'
+import { EVENTS } from '@/mocks/events'
 import { useAuthStore } from '@/stores/auth.store'
 import { notify } from '@/services/toast.service'
 import { storeToRefs } from 'pinia'
+import { USER_EVENTS } from '@/mocks/my-events'
 
 const route = useRoute()
 const router = useRouter()
@@ -91,8 +141,16 @@ const auth = useAuthStore()
 const {isAuthenticated} = storeToRefs(auth)
 
 const event = computed(() => {
-	return MOCK_EVENTS.find(e => e.id === route.params.eventId)
+	return EVENTS.find(e => e.id === route.params.eventId)
 })
+
+const userEvents = computed(() => 
+	USER_EVENTS.find(ue => ue.eventId === route.params.eventId)
+)
+
+const isJoined = computed(() => !!userEvents.value)
+const isOrganizer = computed(() => userEvents.value?.role === 'organizer')
+const isAttendee = computed(() => userEvents.value?.role === 'attendee')
 
 const joining = ref(false)
 const addingFav = ref(false)
@@ -124,6 +182,18 @@ const onFavorite = async () => {
 	await new Promise(r => setTimeout(r, 500))
 	addingFav.value = false
 	notify.success('You have added this event to your favorites!')
+}
+
+const goManage = () => {
+	router.push({
+		name: 'org-event-manage', // future route
+		params: { eventId: route.params.eventId },
+	})
+}
+
+const onCancelEvent = async () => {
+	if (!confirm('Are you sure you want to cancel this event?')) return
+	notify.info('Event has been cancelled (mock)')
 }
 
 </script>
