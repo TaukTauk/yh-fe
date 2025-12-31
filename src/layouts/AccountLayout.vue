@@ -1,8 +1,8 @@
 <template>
 	<v-app>
 		<v-layout>
-			<AppTopBar />
-			<AppSidebar />
+			<AppTopBar context="account"/>
+			<!-- <AppSidebar :navItems="[]"/> -->
 			
 			<v-main>
 				<v-container fluid>
@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import AppSidebar from '@/components/layout/AppSidebar.vue'
+// import AppSidebar from '@/components/layout/AppSidebar.vue'
 import AppTopBar from '@/components/layout/AppTopBar.vue';
 import { onMounted, onBeforeUnmount } from 'vue';
 import { useUiStore } from '@/stores/ui.store';

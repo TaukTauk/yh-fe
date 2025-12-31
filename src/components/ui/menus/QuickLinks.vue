@@ -60,7 +60,14 @@ const links = computed(() => {
 					{ label: 'Browse Events', to: '/', icon: 'mdi-calendar-search' },
 					{ label: 'My Events', to: '/my-events/events', icon: 'mdi-calendar' },
 				]
-			
+
+			case 'account':
+				return [
+					{ label: 'Browse Events', to: '/', icon: 'mdi-calendar-search' },
+					{ label: 'My Events', to: '/my-events/events', icon: 'mdi-calendar' },
+					{ label: 'My Orgs', to: org.currentOrgId ? `/org/${org.currentOrgId}/dashboard` : '/org', icon: 'mdi-office-building-outline' },
+				]
+
 			default: 
 				return []
 		}

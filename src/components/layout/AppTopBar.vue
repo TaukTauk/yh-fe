@@ -1,13 +1,13 @@
 <template>
   <v-app-bar location="top">
-	<v-app-bar-nav-icon v-if="context !== 'public'"
+	<v-app-bar-nav-icon v-if="context !== 'public' && context !== 'account'"
 	  @click="isMobile ? toggleDrawer() : toggleRail()"
 	/>
 
 	<AppLogo />
 
 	<!-- Search bar -->
-	<SearchBar />
+	<SearchBar v-if="context === 'public'"/>
 
 	<!-- Org switcher -->
 	<OrgSwitcher v-if="isAuthenticated && context === 'org'" />

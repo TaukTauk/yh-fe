@@ -1,8 +1,8 @@
 <template>
 	<v-app>
 		<v-layout>
-			<AppTopBar />
-			<AppSidebar />
+			<AppTopBar context="org"/>
+			<AppSidebar :navItems="ORG_NAV"/>
 			
 			<v-main>
 				<v-container fluid>
@@ -18,6 +18,7 @@ import AppSidebar from '@/components/layout/AppSidebar.vue'
 import AppTopBar from '@/components/layout/AppTopBar.vue';
 import { onMounted, onBeforeUnmount } from 'vue';
 import { useUiStore } from '@/stores/ui.store';
+import { ORG_NAV } from '@/config/navigation';
 
 const ui = useUiStore()
 

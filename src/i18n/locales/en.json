@@ -10,7 +10,8 @@
     "help": "Help",
 	"location": "Location",
 	"quickActions": "Quick Actions",
-	"appSettings": "App Settings"
+	"appSettings": "App Settings",
+	"accountSettings": "Account Settings"
   },
   "nav": {
     "home": "Home",
@@ -19,7 +20,10 @@
 	"orgDashboard": "Dashboard",
 	"createEvent": "Events",
 	"createPaidEvent": "Paid Events",
-	"orgSettings": "Settings"
+	"orgSettings": "Settings",
+	"myEvents": "My Events",
+	"favorites": "Favorites",
+	"tickets": "Tickets"
   },
   "search": {
 	"placeholder": "Search for Events"

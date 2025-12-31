@@ -8,7 +8,7 @@
 	location="left"
 	floating
   >
-  <v-list density="compact" nav>
+  <v-list v-if="visibleItems.length" density="compact" nav>
       <v-list-item 
 		v-for="item in visibleItems"
 		:key="item.to"
@@ -18,6 +18,13 @@
 		exact
 	  />
     </v-list>
+
+	<v-list v-else density="compact">
+		<v-list-item
+			prepend-icon="mdi-lock"
+			title="No available actions"
+		/>
+	</v-list>
   </v-navigation-drawer>
 </template>
 
@@ -25,9 +32,13 @@
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useUiStore } from '@/stores/ui.store'
-import { NAV_ITEMS } from '@/config/navigation'
 import { useAuthStore } from '@/stores/auth.store'
 import { useOrgStore } from '@/stores/org.store'
+import type { NavItem } from '@/config/navigation/types'
+
+const props = defineProps<{
+	navItems: NavItem[]
+}>()
 
 const ui = useUiStore()
 const org =useOrgStore()
@@ -42,7 +53,7 @@ const roleRank = {
 
 const auth = useAuthStore()
 const visibleItems = computed(() => {
-	return NAV_ITEMS.filter(item => {
+	return props.navItems.filter(item => {
 
 		// 1. auth
 		if (item.requiresAuth && !auth.isAuthenticated) return false
