@@ -1,18 +1,21 @@
 <template>
   <v-app-bar location="top">
-	<v-app-bar-nav-icon
+	<v-app-bar-nav-icon v-if="context !== 'public'"
 	  @click="isMobile ? toggleDrawer() : toggleRail()"
 	/>
 
-	<v-toolbar-title>App</v-toolbar-title>
+	<AppLogo />
+
+	<!-- Search bar -->
+	<SearchBar />
 
 	<!-- Org switcher -->
-	<OrgSwitcher v-if="isAuthenticated" />
+	<OrgSwitcher v-if="isAuthenticated && context === 'org'" />
 
 	<v-spacer />
 
 	<!-- profile -->
-	<TopbarActions />
+	<TopbarActions :context="context"/>
 	
   </v-app-bar>
 </template>
@@ -23,6 +26,13 @@ import { useUiStore } from '@/stores/ui.store'
 import TopbarActions from '@/components/ui/TopbarActions.vue'
 import OrgSwitcher from '@/components/org/OrgSwitcher.vue'
 import { useAuthStore } from '@/stores/auth.store'
+import AppLogo from '@/components/ui/AppLogo.vue'
+import SearchBar from '@/components/ui/SearchBar.vue'
+import type { TopbarContext } from '@/types/topbar'
+
+defineProps<{
+	context: TopbarContext
+}>()
 
 const ui = useUiStore()
 const { isMobile } = storeToRefs(ui)

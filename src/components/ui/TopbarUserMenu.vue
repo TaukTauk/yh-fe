@@ -13,10 +13,9 @@
 		</template>
 
 		<v-list>
-			<v-list-item title="Profile">
-				<v-divider />
+			<v-list-item >
 
-				<AppSettingsMenu />
+				<AppSettingsMenu :context="context"/>
 
 				<v-divider />
 				<v-list-item 
@@ -31,6 +30,11 @@
 <script setup lang="ts">
 import { useAuthStore } from '@/stores/auth.store';
 import AppSettingsMenu from './menus/AppSettingsMenu.vue'
+import type { TopbarContext } from '@/types/topbar';
+
+defineProps<{
+	context: TopbarContext
+}>()
 
 const auth = useAuthStore()
 const logout = () => auth.logout()

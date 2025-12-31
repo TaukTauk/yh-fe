@@ -1,5 +1,11 @@
 <template>
 	<v-list density="compact" min-width="220">
+		<!-- Quick Links -->
+		<QuickLinks :context="context"/>
+
+		<v-list-subheader>
+			{{ $t('common.appSettings') }}
+		</v-list-subheader>
 		<!-- Settings -->
 		<v-list-item prepend-icon="mdi-cog" :title="$t('common.settings')"></v-list-item>
 
@@ -40,4 +46,10 @@
 import SubMenu from './SubMenu.vue';
 import ThemeModeList from './ThemeModeList.vue'
 import LanguageMenu from './LanguageMenu.vue';
+import type { TopbarContext } from '@/types/topbar';
+import QuickLinks from './QuickLinks.vue';
+
+defineProps<{
+	context: TopbarContext
+}>()
 </script>

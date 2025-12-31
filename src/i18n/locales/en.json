@@ -8,7 +8,9 @@
     "language": "Language",
     "theme": "Theme",
     "help": "Help",
-	"location": "Location"
+	"location": "Location",
+	"quickActions": "Quick Actions",
+	"appSettings": "App Settings"
   },
   "nav": {
     "home": "Home",
@@ -18,5 +20,8 @@
 	"createEvent": "Events",
 	"createPaidEvent": "Paid Events",
 	"orgSettings": "Settings"
+  },
+  "search": {
+	"placeholder": "Search for Events"
   }
 }

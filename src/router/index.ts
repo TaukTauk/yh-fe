@@ -34,107 +34,107 @@ const router = createRouter({
 
 	},
 	// account settings
-	{
-		path: '/account-settings',
-		component: AccountLayout,
-		meta: {requiresAuth: true},
-		children: [
-			{
-				path: '',
-				name: 'account-settings',
-				component: () => import('@/views/Account/AccountSettings.vue'),
-				meta: {
-					permission: PERMISSIONS.ACCOUNT_SETTING,
-				},
-			},
-		],
-	},
-	// my events
-	{
-		path: '/my-events',
-		component: EventLayout,
-		meta: {requiresAuth: true},
-		children: [
-			{
-				path: 'events',
-				name: 'myevent-all-events',
-				component: () => import('@/views/MyEvent/Events.vue'),
-				meta: {
-					permission: PERMISSIONS.EVENTS_ALL,
-				},
-			},
-			{
-				path: 'favorite',
-				name: 'favorite-events',
-				component: () => import('@/views/MyEvent/FavEvents.vue'),
-				meta: {
-					permission: PERMISSIONS.EVENTS_FAV,
-				},
-			},
-			{
-				path: 'tickets',
-				name: 'myevent-tickets',
-				component: () => import('@/views/MyEvent/Tickets.vue'),
-				meta: {
-					permission: PERMISSIONS.EVENTS_TICKET,
-				},
-			},
-		],
-	},
-	// organization
-	{
-		path: '/org',
-		component: OrgLayout,
-		meta: {requiresAuth: true},
-		children: [
-			{
-				path: ':orgId/dashboard',
-				name: 'org-dashboard',
-				component: () => import('@/views/Org/OrgDashboard.vue'),
-				meta: {
-					requiresAuth: true,
-					org: {
-						role: 'organizer',
-					}
-				}
-			},
-			{
-				path: ':orgId/events/create',
-				name: 'org-event-create',
-				component: () => import('@/views/Org/CreateEvent.vue'),
-				meta: {
-					requiresAuth: true,
-					org: {
-						permission: ORG_PERMISSIONS.EVENT_CREATE,
-						requiresVerified: true,
-					}
-				}
-			},
-			{
-				path: ':orgId/settings',
-				name: 'org-settings',
-				component: () => import('@/views/Org/Settings.vue'),
-				meta: {
-					requiresAuth: true,
-					org: {
-						role: 'admin'
-					}
-				}
-			},
-			{
-				path: ':orgId/events/create-paid',
-				name: 'org-event-create-paid',
-				component: () => import('@/views/Org/CreatePaidEvent.vue'),
-				meta: {
-					requiresAuth: true,
-					org: {
-						permission: ORG_PERMISSIONS.EVENT_PAID_CREATE,
-						requiresVerified: true,
-					}
-				}
-			},
-		],
-	},
+	// {
+	// 	path: '/account-settings',
+	// 	component: AccountLayout,
+	// 	meta: {requiresAuth: true},
+	// 	children: [
+	// 		{
+	// 			path: '',
+	// 			name: 'account-settings',
+	// 			component: () => import('@/views/Account/AccountSettings.vue'),
+	// 			meta: {
+	// 				permission: PERMISSIONS.ACCOUNT_SETTING,
+	// 			},
+	// 		},
+	// 	],
+	// },
+	// // my events
+	// {
+	// 	path: '/my-events',
+	// 	component: EventLayout,
+	// 	meta: {requiresAuth: true},
+	// 	children: [
+	// 		{
+	// 			path: 'events',
+	// 			name: 'myevent-all-events',
+	// 			component: () => import('@/views/MyEvent/Events.vue'),
+	// 			meta: {
+	// 				permission: PERMISSIONS.EVENTS_ALL,
+	// 			},
+	// 		},
+	// 		{
+	// 			path: 'favorite',
+	// 			name: 'favorite-events',
+	// 			component: () => import('@/views/MyEvent/FavEvents.vue'),
+	// 			meta: {
+	// 				permission: PERMISSIONS.EVENTS_FAV,
+	// 			},
+	// 		},
+	// 		{
+	// 			path: 'tickets',
+	// 			name: 'myevent-tickets',
+	// 			component: () => import('@/views/MyEvent/Tickets.vue'),
+	// 			meta: {
+	// 				permission: PERMISSIONS.EVENTS_TICKET,
+	// 			},
+	// 		},
+	// 	],
+	// },
+	// // organization
+	// {
+	// 	path: '/org',
+	// 	component: OrgLayout,
+	// 	meta: {requiresAuth: true},
+	// 	children: [
+	// 		{
+	// 			path: ':orgId/dashboard',
+	// 			name: 'org-dashboard',
+	// 			component: () => import('@/views/Org/OrgDashboard.vue'),
+	// 			meta: {
+	// 				requiresAuth: true,
+	// 				org: {
+	// 					role: 'organizer',
+	// 				}
+	// 			}
+	// 		},
+	// 		{
+	// 			path: ':orgId/events/create',
+	// 			name: 'org-event-create',
+	// 			component: () => import('@/views/Org/CreateEvent.vue'),
+	// 			meta: {
+	// 				requiresAuth: true,
+	// 				org: {
+	// 					permission: ORG_PERMISSIONS.EVENT_CREATE,
+	// 					requiresVerified: true,
+	// 				}
+	// 			}
+	// 		},
+	// 		{
+	// 			path: ':orgId/settings',
+	// 			name: 'org-settings',
+	// 			component: () => import('@/views/Org/Settings.vue'),
+	// 			meta: {
+	// 				requiresAuth: true,
+	// 				org: {
+	// 					role: 'admin'
+	// 				}
+	// 			}
+	// 		},
+	// 		{
+	// 			path: ':orgId/events/create-paid',
+	// 			name: 'org-event-create-paid',
+	// 			component: () => import('@/views/Org/CreatePaidEvent.vue'),
+	// 			meta: {
+	// 				requiresAuth: true,
+	// 				org: {
+	// 					permission: ORG_PERMISSIONS.EVENT_PAID_CREATE,
+	// 					requiresVerified: true,
+	// 				}
+	// 			}
+	// 		},
+	// 	],
+	// },
 	// auth
 	{
 		path: '/auth',
