@@ -8,11 +8,25 @@
     "language": "Language",
     "theme": "Theme",
     "help": "Help",
-	"location": "Location"
+	"location": "Location",
+	"quickActions": "Quick Actions",
+	"appSettings": "App Settings",
+	"accountSettings": "Account Settings"
   },
   "nav": {
     "home": "Home",
     "profile": "Profile",
-    "users": "Users"
+    "users": "Users",
+	"orgDashboard": "Dashboard",
+	"createEvent": "Create Event",
+	"createPaidEvent": "Create Paid Event",
+	"orgSettings": "Settings",
+	"myEvents": "My Events",
+	"favorites": "Favorites",
+	"tickets": "Tickets",
+	"orgEvents": "Events"
+  },
+  "search": {
+	"placeholder": "Search for Events"
   }
 }

@@ -1,18 +1,32 @@
 {
   "common": {
-    "home": "ပင်မ",
+    "home": "ပင်မစာမျက်နှာ",
     "users": "အသုံးပြုသူများ",
-    "login": "Sing in",
-    "logout": "Sign out",
-    "settings": "Settings",
+    "login": "ဝင်ရောက်ရန်",
+    "logout": "ထွက်ရန်",
+    "settings": "ဆက်တင်များ",
     "language": "ဘာသာစကား",
-    "theme": "ကာလာ",
+    "theme": "အပြင်အဆင်",
     "help": "အကူအညီ",
-	"location": "နေရပ်"
+    "location": "တည်နေရာ",
+    "quickActions": "အမြန်လုပ်ဆောင်ချက်များ",
+    "appSettings": "အက်ပ်ဆက်တင်များ",
+    "accountSettings": "အကောင့်ဆက်တင်များ"
   },
   "nav": {
-    "home": "ပင်မ",
+    "home": "ပင်မစာမျက်နှာ",
     "profile": "ကိုယ်ရေးအချက်အလက်",
-    "users": "အသုံးပြုသူများ"
+    "users": "အသုံးပြုသူများ",
+    "orgDashboard": "ဒက်ရှ်ဘုတ်",
+    "createEvent": "အဖြစ်အပျက် ဖန်တီးရန်",
+    "createPaidEvent": "အခကြေးငွေပါ အဖြစ်အပျက် ဖန်တီးရန်",
+    "orgSettings": "အဖွဲ့အစည်း ဆက်တင်များ",
+    "myEvents": "ကျွန်ုပ်၏ အဖြစ်အပျက်များ",
+    "favorites": "နှစ်သက်ထားသည်များ",
+    "tickets": "လက်မှတ်များ",
+    "orgEvents": "အဖြစ်အပျက်များ"
+  },
+  "search": {
+    "placeholder": "အဖြစ်အပျက်များကို ရှာဖွေရန်"
   }
 }
