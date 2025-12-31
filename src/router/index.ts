@@ -30,6 +30,13 @@ const router = createRouter({
 				name: 'results',
 				component: () => import('@/views/Public/Results.vue'),
 			},
+			// event detail
+			{
+				path: '/events/:eventId',
+				name: 'event-detail',
+				component: () => import('@/views/Public/EventDetail.vue'),
+			},
+ 
 		],
 
 	},

@@ -7,7 +7,7 @@
 	<AppLogo />
 
 	<!-- Search bar -->
-	<SearchBar v-if="context === 'public'"/>
+	<!-- <SearchBar v-if="context === 'public'"/> -->
 
 	<!-- Org switcher -->
 	<OrgSwitcher v-if="isAuthenticated && context === 'org'" />
@@ -15,7 +15,7 @@
 	<v-spacer />
 
 	<!-- profile -->
-	<TopbarActions :context="context"/>
+	<TopbarActions :context="context" class="me-3"/>
 	
   </v-app-bar>
 </template>
